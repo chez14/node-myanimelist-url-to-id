@@ -1,1 +1,1 @@
-export const MyAnimeList_BaseUrl = 'https://myanimelist.net/';
+export const MAL_BaseUrl = 'https://myanimelist.net/';

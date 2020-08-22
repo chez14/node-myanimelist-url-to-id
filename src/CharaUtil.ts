@@ -1,6 +1,7 @@
 import InvalidUrl from './exceptions/InvalidUrl';
 import { URL } from 'url';
-import { MyAnimeList_BaseUrl } from './ConstDefinition';
+import { MAL_BaseUrl } from './ConstDefinition';
+import { startsWith } from './utils';
 
 const charaPattern = /\/character\/([\d]+)/;
 
@@ -9,7 +10,7 @@ const charaPattern = /\/character\/([\d]+)/;
  * @param url URL string of MyAnimeList Character URL
  */
 export function getCharaId(url: string): number {
-  if (!charaPattern.test(url)) {
+  if (!startsWith(MAL_BaseUrl, url) || !charaPattern.test(url)) {
     throw new InvalidUrl("The url doesn't match the Character Pattern.");
   }
 
@@ -22,6 +23,6 @@ export function getCharaId(url: string): number {
  * @param id Character ID
  */
 export function getCharaUrl(id: number): string {
-  let url = new URL('/character/' + id, MyAnimeList_BaseUrl);
+  let url = new URL('/character/' + id, MAL_BaseUrl);
   return url.toString();
 }

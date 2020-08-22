@@ -1,6 +1,7 @@
 import InvalidUrl from './exceptions/InvalidUrl';
 import { URL } from 'url';
-import { MyAnimeList_BaseUrl } from './ConstDefinition';
+import { MAL_BaseUrl } from './ConstDefinition';
+import { startsWith } from './utils';
 
 const mangaPattern = /\/manga\/([\d]+)/;
 
@@ -9,7 +10,7 @@ const mangaPattern = /\/manga\/([\d]+)/;
  * @param url URL string of MyAnimeList Manga URL
  */
 export function getMangaId(url: string): number {
-  if (!mangaPattern.test(url)) {
+  if (!startsWith(MAL_BaseUrl, url) || !mangaPattern.test(url)) {
     throw new InvalidUrl("The url doesn't match the Manga Pattern.");
   }
 
@@ -22,6 +23,6 @@ export function getMangaId(url: string): number {
  * @param id Manga ID
  */
 export function getMangaUrl(id: number): string {
-  let url = new URL('/manga/' + id, MyAnimeList_BaseUrl);
+  let url = new URL('/manga/' + id, MAL_BaseUrl);
   return url.toString();
 }
