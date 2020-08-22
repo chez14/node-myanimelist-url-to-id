@@ -8,7 +8,7 @@
     "build": "tsc",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
     "lint": "tslint -p tsconfig.json",
-    "relase": "auto shipit -vv"
+    "release": "auto shipit -vv"
   },
   "repository": {
     "type": "git",
