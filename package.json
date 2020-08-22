@@ -7,7 +7,8 @@
     "test": "jest",
     "build": "tsc",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
-    "lint": "tslint -p tsconfig.json"
+    "lint": "tslint -p tsconfig.json",
+    "release": "auto shipit -vv"
   },
   "repository": {
     "type": "git",
@@ -26,8 +27,11 @@
   },
   "homepage": "https://github.com/chez14/node-myanimelist-url-to-id#readme",
   "devDependencies": {
+    "@auto-it/all-contributors": "^9.52.0",
+    "@auto-it/first-time-contributor": "^9.52.0",
     "@types/jest": "^26.0.10",
     "@types/node": "^14.6.0",
+    "auto": "^9.52.0",
     "jest": "^26.4.1",
     "prettier": "^2.0.5",
     "ts-jest": "^26.2.0",
@@ -39,5 +43,13 @@
   "files": [
     "build/**/*"
   ],
-  "dependencies": {}
+  "dependencies": {},
+  "auto": {
+    "plugins": [
+      "npm",
+      "all-contributors",
+      "first-time-contributor",
+      "released"
+    ]
+  }
 }
