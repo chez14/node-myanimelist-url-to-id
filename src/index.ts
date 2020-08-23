@@ -1,3 +1,3 @@
-export * from './AnimeUtil';
-export * from './MangaUtil';
-export * from './CharaUtil';
+export { getAnimeId, getAnimeUrl } from './AnimeUtil';
+export { getMangaId, getMangaUrl } from './MangaUtil';
+export { getCharaId, getCharaUrl } from './CharaUtil';
