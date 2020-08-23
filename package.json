@@ -2,7 +2,7 @@
   "name": "myanimelist-url-to-id",
   "version": "0.0.4",
   "description": "MyAnimeList raw URL to ID",
-  "main": "build/index.ts",
+  "main": "build/index.js",
   "types": "build/index.d.ts",
   "scripts": {
     "test": "jest",
