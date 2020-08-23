@@ -1,3 +1,19 @@
+# v0.0.3 (Sun Aug 23 2020)
+
+:tada: This release contains work from a new contributor! :tada:
+
+Thank you, Chris Qiang ([@chez14](https://github.com/chez14)), for all your work!
+
+#### ⚠️ Pushed to `master`
+
+- import function fixing ([@chez14](https://github.com/chez14))
+
+#### Authors: 1
+
+- Chris Qiang ([@chez14](https://github.com/chez14))
+
+---
+
 # v0.0.2 (Sat Aug 22 2020)
 
 :tada: This release contains work from a new contributor! :tada:
