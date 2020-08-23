@@ -3,6 +3,7 @@
   "version": "0.0.3",
   "description": "MyAnimeList raw URL to ID",
   "main": "build/index.ts",
+  "types": "build/index.d.ts",
   "scripts": {
     "test": "jest",
     "build": "tsc",
