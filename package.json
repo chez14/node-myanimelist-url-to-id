@@ -2,7 +2,7 @@
   "name": "myanimelist-url-to-id",
   "version": "0.0.4",
   "description": "MyAnimeList raw URL to ID",
-  "main": "build/index.ts",
+  "main": "build/index.js",
   "types": "build/index.d.ts",
   "scripts": {
     "test": "jest",
@@ -36,7 +36,6 @@
     "jest": "^26.4.1",
     "prettier": "^2.0.5",
     "ts-jest": "^26.2.0",
-    "ts-node": "^9.0.0",
     "tslint": "^6.1.3",
     "tslint-config-prettier": "^1.18.0",
     "typescript": "^4.0.2"
@@ -51,6 +50,8 @@
       "all-contributors",
       "first-time-contributor",
       "released"
-    ]
+    ],
+    "name": "Replica (レプリカ)",
+    "email": "bots+repurika@christianto.net"
   }
 }
