@@ -31,6 +31,57 @@ console.log(getCharaId('https://myanimelist.net/character/81239/Yuuma_Kuga'));
 // 81239
 ```
 
+## Documentation
+
+You can actually see the usage of this library on the [`__test__`folder](src/__test__/), and go with the documentation that I made on the functions comment (that shows up on Intellisense). But for clarity I'll write it here too.
+
+### `AnimeUtil` Class
+
+#### `getAnimeId (url: string): number`
+
+Will returns something like `34599`
+
+#### `getAnimeUrl (id: number): string` 
+
+Will return something like `https://myanimelist.net/anime/34599`
+
+### `CharaUtil` Class
+
+**Note**: Chara stands for Character.
+
+#### `getCharaId(url: string): number`
+
+Will return something like `140046`
+
+#### `getCharaUrl(id: number): string`
+
+Will return something like `https://myanimelist.net/character/140046`
+
+### `MangaUtil` Class
+
+#### `getMangaId(url: string): number`
+
+Will return something like  `91941`
+
+#### `getMangaUrl(id: number): string`
+
+Will return something like `https://myanimelist.net/manga/91941`
+
+### `InvalidUrl` Exception
+
+the `getAnimeId`, `getCharaId` and `getMangaId` will throws `InvalidUrl` exception when the Url doesn't match the pattern we have. Please handle it properly.
+
+```js
+import {InvalidUrl} from "myanimelist-url-to-id/build/exceptions"
+try {
+	let animeId = getAnimeId('malformed-url'); 
+} catch (e) {
+    if(e instanceof InvalidUrl) {
+        // handle your error here.
+    }
+}
+```
+
 ## FAQ
 
 **Do this library requires MAL API?** \
