@@ -1,3 +1,15 @@
+# v1.0.0 (Tue Aug 25 2020)
+
+#### 💥 Breaking Change
+
+- Improvement on many things [#3](https://github.com/chez14/node-myanimelist-url-to-id/pull/3) ([@chez14](https://github.com/chez14))
+
+#### Authors: 1
+
+- Chris Qiang ([@chez14](https://github.com/chez14))
+
+---
+
 # v0.0.4 (Sun Aug 23 2020)
 
 :tada: This release contains work from a new contributor! :tada:
