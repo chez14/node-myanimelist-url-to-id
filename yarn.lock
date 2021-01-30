@@ -2,15 +2,15 @@
 # yarn lockfile v1
 
 
-"@auto-it/all-contributors@^9.52.0":
-  version "9.52.0"
-  resolved "https://registry.yarnpkg.com/@auto-it/all-contributors/-/all-contributors-9.52.0.tgz#10114704539f7bb250c601f051446095ca2c0825"
-  integrity sha512-YHF0NzvajJ/jTbVaaBIlmE7ZDodZ1aJ2GWV21qB5NLc9ARtV7B+nXsL380E7nHl7r6Hozni5cAH9v+V4v/j2ng==
+"@auto-it/all-contributors@^10.13.3":
+  version "10.13.3"
+  resolved "https://registry.yarnpkg.com/@auto-it/all-contributors/-/all-contributors-10.13.3.tgz#9b30defaa82916412ca6f31643de69c2b1071c03"
+  integrity sha512-Kkk4/UgjUlLbIbw9l7EKY4ZzxOi8Yq6rTodHOd/cO570kS0qmVCgmtEHmbNLq0A05Q50w89AcZMOkVdUj4xH6A==
   dependencies:
-    "@auto-it/bot-list" "9.52.0"
-    "@auto-it/core" "9.52.0"
+    "@auto-it/bot-list" "10.13.3"
+    "@auto-it/core" "10.13.3"
     "@octokit/rest" "^18.0.0"
-    all-contributors-cli "6.17.2"
+    all-contributors-cli "6.19.0"
     anymatch "^3.1.1"
     await-to-js "^2.1.1"
     endent "^2.0.1"
@@ -18,7 +18,7 @@
     fp-ts "^2.5.3"
     fromentries "^1.2.0"
     io-ts "^2.1.2"
-    tslib "2.0.1"
+    tslib "2.0.3"
 
 "@auto-it/bot-list@10.13.3":
   version "10.13.3"
@@ -964,10 +964,10 @@ ajv@^6.12.3:
     json-schema-traverse "^0.4.1"
     uri-js "^4.2.2"
 
-all-contributors-cli@6.17.2:
-  version "6.17.2"
-  resolved "https://registry.yarnpkg.com/all-contributors-cli/-/all-contributors-cli-6.17.2.tgz#fb3461de56c378d1846e0b982ca0bd7ce4359c18"
-  integrity sha512-1ip57waUGz92HWbM5VgiGOjBz25fWXOtCRtCFbjCuuiCuiYbygnvcb9iFYiyNz28RlECg1VPXWrXOJABq+h+MQ==
+all-contributors-cli@6.19.0:
+  version "6.19.0"
+  resolved "https://registry.yarnpkg.com/all-contributors-cli/-/all-contributors-cli-6.19.0.tgz#7e4550973afede2476b62bd159fee6d72a1ad802"
+  integrity sha512-QJN4iLeTeYpTZJES8XFTzQ+itA1qSyBbxLapJLtwrnY+kipyRhCX49fS/s/qftQQym9XLATMZUpUeEeJSox1sw==
   dependencies:
     "@babel/runtime" "^7.7.6"
     async "^3.0.1"
