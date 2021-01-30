@@ -1,3 +1,15 @@
+# v1.0.1 (Sat Jan 30 2021)
+
+#### ⚠️ Pushed to `master`
+
+- Add Dependabot integration ([@chez14](https://github.com/chez14))
+
+#### Authors: 1
+
+- Chris Qiang ([@chez14](https://github.com/chez14))
+
+---
+
 # v1.0.0 (Tue Aug 25 2020)
 
 #### 💥 Breaking Change
