@@ -1,15 +1,15 @@
 {
   "name": "myanimelist-url-to-id",
   "version": "1.0.3",
+  "type": "module",
   "description": "MyAnimeList raw URL to ID",
   "main": "build/index.js",
   "types": "build/index.d.ts",
   "scripts": {
-    "test": "jest",
+    "test": "vitest run",
     "build": "tsc",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
-    "lint": "tslint -p tsconfig.json",
-    "release": "auto shipit -vv"
+    "lint": "eslint src/**/*.ts"
   },
   "repository": {
     "type": "git",
@@ -28,30 +28,25 @@
   },
   "homepage": "https://github.com/chez14/node-myanimelist-url-to-id#readme",
   "devDependencies": {
-    "@auto-it/all-contributors": "^10.13.3",
-    "@auto-it/first-time-contributor": "^10.13.3",
-    "@types/jest": "^26.0.10",
-    "@types/node": "^14.6.0",
-    "auto": "^10.13.3",
-    "jest": "^26.4.1",
-    "prettier": "^2.0.5",
-    "ts-jest": "^26.2.0",
-    "tslint": "^6.1.3",
-    "tslint-config-prettier": "^1.18.0",
-    "typescript": "^4.0.2"
+    "@eslint/js": "^9.39.2",
+    "@types/node": "^25.0.3",
+    "@typescript-eslint/eslint-plugin": "^8.51.0",
+    "@typescript-eslint/parser": "^8.51.0",
+    "eslint": "^9.39.2",
+    "eslint-config-prettier": "^10.1.8",
+    "prettier": "^3.7.4",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.16"
   },
   "files": [
     "build/**/*"
   ],
-  "dependencies": {},
-  "auto": {
-    "plugins": [
-      "npm",
-      "all-contributors",
-      "first-time-contributor",
-      "released"
-    ],
-    "name": "Replica (レプリカ)",
-    "email": "bots+repurika@christianto.net"
+  "packageManager": "pnpm@10.14.0+sha512.ad27a79641b49c3e481a16a805baa71817a04bbe06a38d17e60e2eaee83f6a146c6a688125f5792e48dd5ba30e7da52a5cda4c3992b9ccf333f9ce223af84748",
+  "pnpm": {
+    "onlyBuiltDependencies": ["esbuild"]
+  },
+  "publishConfig": {
+    "provenance": true,
+    "access": "public"
   }
 }
