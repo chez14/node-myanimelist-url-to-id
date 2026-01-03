@@ -1,7 +1,11 @@
 # MyAnimeList Url to ID Parser/Converter
 
-Convert your MyAnimeList URL to the respective's object ID. This can be usefull
-when you're trying to parse MyAnimeList URl's to extract their ID.
+**Note:** This project has moved to
+[GitLab](https://gitlab.com/chez14/node-myanimelist-url-to-id). The repository
+on GitHub is kept for archival and mirror purposes.
+
+Convert your MyAnimeList URL to the respective's object ID. This can be useful
+when you're trying to parse MyAnimeList URLs to extract their ID.
 
 Yes, we support TypeScript.
 
