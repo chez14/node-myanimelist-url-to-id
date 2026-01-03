@@ -1,0 +1,123 @@
+# Default image for jobs that don't specify one
+image: registry.gitlab.com/net.christianto/images/node-testing:24-alpine
+
+# Define the stages and their order
+stages:
+  - test
+  - build
+  - publish
+
+# Workflow rules to determine when pipelines should run
+workflow:
+  rules:
+    - if: $CI_COMMIT_TAG
+      when: always
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+      when: always
+    - if: $CI_MERGE_REQUEST_IID
+      when: always
+
+# Base configuration for Node.js jobs
+# Handles PNPM setup and caching
+.node-base:
+  cache:
+    key:
+      files:
+        - pnpm-lock.yaml
+    paths:
+      - .pnpm-store
+  before_script:
+    - corepack enable
+    - corepack prepare pnpm@latest --activate
+
+# Base configuration for test jobs using Node.js
+# Extends node-base and defines common test steps
+.test-node:
+  extends: .node-base
+  stage: test
+  script:
+    - pnpm install
+    - pnpm test
+    - pnpm lint
+    - pnpm build
+
+# Test job for multiple Node.js versions
+# Tests against Node.js 18, 20, 22, and 23
+test-node-matrix:
+  extends: .test-node
+  parallel:
+    matrix:
+      - NODE_VERSION: ["20", "22", "24", "25", "lts"]
+  image: registry.gitlab.com/net.christianto/images/node-testing:${NODE_VERSION}-alpine
+
+# Bun test job hangs on vitex: https://github.com/oven-sh/bun/issues/11268.
+# So for now this is disabled.
+#
+# # Test job for multiple Bun versions
+# # Tests against Bun 1.x and latest
+# test-bun-matrix:
+#   stage: test
+#   parallel:
+#     matrix:
+#       - BUN_VERSION: ["1-slim", "latest"]
+#   image: oven/bun:${BUN_VERSION}
+#   script:
+#     - bun install
+#     - bun run test
+#     - bun run lint
+#     - bun run build
+
+# Build job to create production artifacts
+# Creates the dist/ directory for publishing
+build:
+  extends: .node-base
+  stage: build
+  script:
+    - pnpm install
+    - pnpm build
+  artifacts:
+    paths:
+      - dist/
+    expire_in: 1 week
+
+# Base configuration for publish jobs
+# Only runs on tags and requires build artifacts
+.publish-base:
+  extends: .node-base
+  stage: publish
+  dependencies:
+    - build
+  id_tokens:
+    SIGSTORE_ID_TOKEN:
+      aud: sigstore
+  rules:
+    - if: $CI_COMMIT_TAG
+      when: always
+    - when: never
+
+# Publish job for GitLab Package Registry
+# Publishes the package to the project's package registry
+publish-gitlab:
+  extends: .publish-base
+  script:
+    - npm config set "@chez14:registry" "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/npm/"
+    - npm config set "${CI_API_V4_URL#https?}/projects/${CI_PROJECT_ID}/packages/npm/:_authToken" "${CI_JOB_TOKEN}"
+    - TAG_VERSION="${CI_COMMIT_TAG#v}"
+    - if [ "${TAG_VERSION}" != "${TAG_VERSION%-*}" ]; then TAG=next; else TAG=latest; fi
+    - pnpm publish --tag "${TAG}"
+
+# Publish job for NPM Registry
+# Publishes the package to npmjs.org with Sigstore signing
+publish-npm:
+  extends: .publish-base
+  id_tokens:
+    SIGSTORE_ID_TOKEN:
+      aud: sigstore
+    NPM_ID_TOKEN:
+      aud: "npm:registry.npmjs.org"
+  script:
+    - TAG_VERSION="${CI_COMMIT_TAG#v}"
+    - if [ "${TAG_VERSION}" != "${TAG_VERSION%-*}" ]; then TAG=next; else TAG=latest; fi
+    - pnpm publish --tag "${TAG}"
+  environment:
+    name: npm
