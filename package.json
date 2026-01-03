@@ -1,6 +1,6 @@
 {
   "name": "myanimelist-url-to-id",
-  "version": "2.0.1-0",
+  "version": "2.0.1-1",
   "type": "module",
   "description": "MyAnimeList raw URL to ID",
   "main": "build/index.js",
