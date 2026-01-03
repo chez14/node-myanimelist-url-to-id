@@ -9,8 +9,7 @@
     "test": "vitest run",
     "build": "tsc",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
-    "lint": "eslint src/**/*.ts",
-    "release": "auto shipit -vv"
+    "lint": "eslint src/**/*.ts"
   },
   "repository": {
     "type": "git",
@@ -29,13 +28,10 @@
   },
   "homepage": "https://github.com/chez14/node-myanimelist-url-to-id#readme",
   "devDependencies": {
-    "@auto-it/all-contributors": "^11.3.6",
-    "@auto-it/first-time-contributor": "^11.3.6",
     "@eslint/js": "^9.0.0",
     "@types/node": "^25.0.3",
     "@typescript-eslint/eslint-plugin": "^8.0.0",
     "@typescript-eslint/parser": "^8.0.0",
-    "auto": "^11.3.6",
     "eslint": "^9.0.0",
     "eslint-config-prettier": "^9.0.0",
     "prettier": "^3.7.4",
@@ -45,15 +41,5 @@
   "files": [
     "build/**/*"
   ],
-  "auto": {
-    "plugins": [
-      "npm",
-      "all-contributors",
-      "first-time-contributor",
-      "released"
-    ],
-    "name": "Replica (レプリカ)",
-    "email": "bots+repurika@christianto.net"
-  },
   "packageManager": "pnpm@10.14.0+sha512.ad27a79641b49c3e481a16a805baa71817a04bbe06a38d17e60e2eaee83f6a146c6a688125f5792e48dd5ba30e7da52a5cda4c3992b9ccf333f9ce223af84748"
 }
